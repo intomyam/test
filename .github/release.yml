@@ -15,6 +15,10 @@ changelog:
     - title: duplicate
       labels:
         - duplicate
+    - title: enhancement
+      labels:
+        - enhancement
     - title: Other Changes
       labels:
         - "*"
+    
