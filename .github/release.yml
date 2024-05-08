@@ -8,6 +8,10 @@ changelog:
     - title: bug
       labels:
         - bug
+        - bar
+    - title: foo
+      labels:
+        - foo
     - title: documentation
       labels:
         - documentation
