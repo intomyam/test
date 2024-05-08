@@ -4,3 +4,5 @@ test
 foo
 duplicate
 late
+
+enhancement
