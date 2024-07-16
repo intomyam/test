@@ -11,6 +11,7 @@ jobs:
       - name: Checkout develop branch
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
           ref: develop
       - name: Configure Git
         run: |
