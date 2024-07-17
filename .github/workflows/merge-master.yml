@@ -18,16 +18,25 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-      - name: Checkout main branch
-        run: git checkout main
       - name: Merge develop into main
         run: |
+          git checkout main
           git merge develop
           if [ $? -ne 0 ]; then
             echo "Merge conflict detected. Aborting."
             exit 1
           fi
-      - name: Push changes to main
-        run: git push origin main
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge main into develop
+        run: |
+            git checkout develop
+            git merge main
+            if [ $? -ne 0 ]; then
+              echo "Merge conflict detected. Aborting."
+              exit 1
+            fi
+            git push origin develop
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
