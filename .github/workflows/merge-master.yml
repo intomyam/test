@@ -31,12 +31,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Merge main into develop
         run: |
-            git checkout develop
-            git merge main
-            if [ $? -ne 0 ]; then
-              echo "Merge conflict detected. Aborting."
-              exit 1
-            fi
-            git push origin develop
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git checkout develop
+          git merge main
+          if [ $? -ne 0 ]; then
+            echo "Merge conflict detected. Aborting."
+            exit 1
+          fi
+          git push origin develop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
